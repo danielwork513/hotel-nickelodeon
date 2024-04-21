@@ -13,7 +13,7 @@ export default function GaleryPage() {
             <img
               src={`/galery/${index + 1}.jpg`}
               alt={`Image ${index}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-md duration-300 transform hover:scale-105"
               loading="lazy"
             />
           </div>

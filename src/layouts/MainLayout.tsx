@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import Hero from "@/pages/Home/Hero";
 import Navbar from "@/components/Navbar";
 
 interface Props {
@@ -12,7 +12,7 @@ export default function MainLayout({ children }: Props) {
       <Navbar />
       <Hero />
       <main className="flex w-full">
-        <div className="flex flex-col w-full max-w-7xl  mx-auto">
+        <div className="flex flex-col w-full max-w-6xl  mx-auto">
           {children}
         </div>
       </main>

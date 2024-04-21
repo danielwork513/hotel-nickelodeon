@@ -10,7 +10,7 @@ export default function SecondaryLayout({ children }: Props) {
     <>
       <Navbar />
       <main className="flex w-full">
-        <div className="flex flex-col w-full max-w-7xl mx-auto">
+        <div className="flex flex-col w-full max-w-6xl mx-auto">
           {children}
         </div>
       </main>
