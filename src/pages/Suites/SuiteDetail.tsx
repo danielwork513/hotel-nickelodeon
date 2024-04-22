@@ -62,7 +62,7 @@ export default function SuiteDetailPage() {
                 El espacio perfecto para tu estadía
               </h4>
             </div>
-            <p className="text-base md:text-lg leading-8 text-pretty">
+            <p className="text-base md:text-lg leading-8 text-pretty mb-4">
               {suite?.caracteristics}
             </p>
 
@@ -71,7 +71,7 @@ export default function SuiteDetailPage() {
 
         </div>
 
-        <div className="my-12">
+        <div className="my-8 md:my-12">
           <p className="text-xl font-bold">Caracteriaticas de todas las habitaciones y suites</p>
           <ul className="flex flex-wrap gap-2 md:gap-4 mt-5">
             <li className="feature">Experiencias Gourmet</li>
@@ -99,7 +99,7 @@ export default function SuiteDetailPage() {
           </ul>
         </div>
 
-        <div className="mb-12">
+        <div className="mb-4 md:mb-12">
           <p className="text-xl font-bold">Servicion Incluidos para tu bebe</p>
           <ul className="flex flex-wrap gap-2 md:gap-4 mt-5">
             <li className="feature">Comida</li>
