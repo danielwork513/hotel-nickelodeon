@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="flex justify-between gap-20 pl-16  pt-40 font-bold mb-10 bg-blue-100 overflow-hidden">
+    <section className="flex justify-between gap-20 pl-16 pt-20 md:pt-40 font-bold mb-10 bg-blue-100 overflow-hidden">
       <h1 className="flex flex-col gap-8 justify-center items-center">
         <span className="text-6xl text-balance font-extrabold">
           Bienvenido!

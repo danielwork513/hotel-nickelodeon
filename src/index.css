@@ -71,6 +71,10 @@
     @apply border-border;
   }
 
+  .feature {
+    @apply border-2 border-neutral-400 p-1 px-2 md:p-3 rounded-xl;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

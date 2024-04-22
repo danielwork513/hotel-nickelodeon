@@ -1,6 +1,6 @@
 export default function ReserveButton() {
   return (
-    <button className="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-orange-600 py-1 pl-6 pr-14 font-medium text-neutral-50">
+    <button className="group relative flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-orange-600 py-1 pl-6 pr-14 font-medium text-neutral-50">
       <span className="z-10 pr-2 font-bold">
         Reservar Ahora
       </span>

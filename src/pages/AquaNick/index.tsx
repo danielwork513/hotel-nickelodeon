@@ -1,15 +1,17 @@
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import Hero from "./Hero"
+import Background from "@/components/Background"
 
 export default function AquaNick() {
   return (
     <>
       <Navbar />
       <Hero />
+      <Background />
       <main className="flex w-full">
         <div className="flex flex-col w-full max-w-6xl mx-auto">
-          <main className="flex flex-col text-lg leading-relaxed">
+          <main className="flex flex-col text-base md:text-lg leading-relaxed">
             <p>
               Diversión increíble para toda la familia, es la experiencia cuando visita el primer parque Aqua Nick en América del Norte. Ubicado en uno de los destinos más paradisíacos del mundo, la Riviera Maya, Aqua Nick es el lugar perfecto para disfrutar de emociones salvajes y experiencias increíbles. Ya sea que esté siendo bañado en Slime con toda la familia, conquistando los vertiginosos toboganes en Soak Summit Tower o simplemente relajarse en un paseo por el Lazy River, encontrará formas ilimitadas de disfrutar de experiencias inolvidables en Aqua Nick®.
             </p>
@@ -26,9 +28,9 @@ export default function AquaNick() {
               Los huéspedes de Nickelodeon™ Hotels& Resorts Riviera Maya disfrutan de acceso ilimitado de cortesía a Aqua Nick® que incluye acceso anticipado exclusivo durante su estadía.
             </p>
 
-            <img src="/Aqua-N.webp" alt="" className="my-16" />
+            <img src="/Aqua-N.webp" alt="" className=" my-5 md:my-16" />
 
-            <p className="my-10">
+            <p className=" my-5 md:my-10">
               Cada rincón de Aqua Nick está lleno de diversión, desde emocionantes sensaciones en la playa de Fondo de Bikini hasta increíbles aventuras acuáticas en la piscina de actividades, ¡No te puedes perder los encuentros con tus personajes favoritos y un súper evento de Slime!
             </p>
           </main>

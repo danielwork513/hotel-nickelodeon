@@ -4,7 +4,7 @@ import "@/styles/galery.css";
 export default function GaleryPage() {
   return (
     <SecondaryLayout>
-      <main className="py-20 pt-40">
+      <main className="py-20 md:pt-40">
         {(new Array(45)).fill(0).map((_, index) => (
           <div
             key={index}
