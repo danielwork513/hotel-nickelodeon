@@ -1,8 +1,8 @@
-import MainLayout from "@/layouts/MainLayout";
-import { Link } from "react-router-dom";
 import bigKakunaSuite from "@/assets/Big-Kakuna-Suite.webp";
 import lairSuite from "@/assets/Lair-Suite.webp";
 import pineappleSuite from "@/assets/The-Pineapple-Suite.webp";
+import MainLayout from "@/layouts/MainLayout";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -105,7 +105,7 @@ export default function HomePage() {
         </section>
 
         <section className="my-14 md:my-20" id="habitaciones">
-          <div className="flex flex-col md:flex-row justify-between md:items-center">
+          <div className="flex flex-col md:flex-row justify-between md:items-center mb-10">
             <div>
               <h3 className="text-3xl md:text-5xl font-black mb-2">HABITACIONES</h3>
               <h4 className="text-xl md:text-3xl font-bold md:font-extrabold md:mb-12 mb-5 text-orange-600">
@@ -119,19 +119,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4 md:gap-x-7">
+          <div className="flex flex-wrap gap-4 justify-between">
             <img
-              className="w-full h-68 object-cover rounded-xl"
+              className="h-68 w-full md:w-[31%] object-cover rounded-xl"
               src={bigKakunaSuite}
               alt="Big Kakuna Suite"
             />
             <img
-              className="w-full h-68 object-cover rounded-xl"
+              className="h-68 w-full md:w-[31%] object-cover rounded-xl"
               src={lairSuite}
               alt="Lair Suite"
             />
             <img
-              className="w-full h-68 object-cover rounded-xl"
+              className="h-68 w-full md:w-[31%] object-cover rounded-xl"
               src={pineappleSuite}
               alt="The Pineapple Suite"
             />

@@ -2,7 +2,7 @@ import ReserveButton from "../../components/ReserveButton"
 
 export default function Hero() {
   return (
-    <section className="flex relative justify-between gap-20 px-8 md:px-0 md:pl-16 pt-14 md:pt-40 font-bold md:mb-10 mb-4 pb-10 md:pb-0 bg-orange-100 overflow-hidden">
+    <section className="flex relative justify-between gap-20 px-8 md:px-0 md:pl-16 pt-14 md:pt-40 font-bold md:mb-10 mb-0 pb-10 md:pb-0 bg-orange-100 overflow-hidden">
       <h1 className="flex flex-col gap-5 z-10">
         <span className="text-xl md:text-3xl">
           ENTRE MÁS HABITACIONES RESERVES
@@ -32,6 +32,10 @@ export default function Hero() {
         className="w-full absolute z-0 inset-0 h-full object-cover md:hidden"
         src="/Nick-0.webp"
         alt=""
+      />
+
+      <div
+        className="w-full bg-white/60 absolute z-0 inset-0 h-full object-cover md:hidden"
       />
     </section>
   )

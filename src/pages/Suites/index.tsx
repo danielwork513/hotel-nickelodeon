@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 export default function SuitesPage() {
   return (
     <SecondaryLayout>
-      <main className="flex flex-col mt-32 mb-20">
+      <main className="flex flex-col pt-14 md:mt-32 mb-10 md:mb-20">
         <div>
-          <h3 className="text-5xl font-black mb-2">HABITACIONES</h3>
-          <h4 className="text-3xl font-extrabold mb-12 text-orange-600">
+          <h3 className="text-3xl md:text-5xl font-black mb-2">HABITACIONES</h3>
+          <h4 className="text-xl md:text-3xl font-extrabold mb-6 md:mb-12 text-orange-600">
             El espacio perfecto para tu estadía
           </h4>
         </div>
 
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-5">
           {suites.map((suite) => {
             // numero alatorio entre 1 y 3
             const random = Math.floor(Math.random() * 3) + 1
