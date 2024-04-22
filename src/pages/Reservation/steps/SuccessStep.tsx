@@ -7,7 +7,9 @@ export default function SuccessStep() {
     nombre,
     suiteName,
     diaReserva,
-    cantidadDias
+    cantidadDias,
+    cantidadAdultos,
+    cantidadNinos,
   } = data
 
   const suites = [
@@ -25,6 +27,8 @@ export default function SuccessStep() {
   const precioLocal = precioTotal.toLocaleString("es-MX", {
     style: "currency",
     currency: "MXN",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   })
 
   return (
@@ -53,6 +57,18 @@ export default function SuccessStep() {
             Dias de reservacion:
             {cantidadDias && <span>{cantidadDias}</span>}
           </div>
+
+          <div className="flex gap-0 md:gap-3 flex-row">
+            Cantidad de adultos:
+            {cantidadAdultos && <span>{cantidadAdultos}</span>}
+          </div>
+
+          {cantidadNinos! > "0" || cantidadNinos != undefined || cantidadNinos != null && (
+            <div className="flex gap-0 md:gap-3 flex-row">
+              Cantidad de niños:
+              {cantidadNinos && <span>{cantidadNinos}</span>}
+            </div>
+          )}
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
             Monto a pagar:
