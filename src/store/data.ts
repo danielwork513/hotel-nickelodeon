@@ -2,7 +2,9 @@ import { create } from "zustand"
 
 interface Data {
   nombre: string
-  apellidos: string
+  email: string
+  telefono: string
+  suiteName: string
 }
 
 type DataStore = {
@@ -13,7 +15,9 @@ type DataStore = {
 export const useDataStore = create<DataStore>((set) => ({
   data: {
     nombre: "",
-    apellidos: "",
+    email: "",
+    telefono: "",
+    suiteName: "",
   },
   setData: (data: Data) => set({ data }),
 }))
@@ -23,13 +27,23 @@ export function setAppDataNombre(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, nombre: data })
 }
 
-export function setAppDataApellidos(data: string) {
-  useDataStore.getState().setData({ ...useDataStore.getState().data, apellidos: data })
+export function setAppDataEmail(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, email: data })
+}
+
+export function setAppDataTelefono(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, telefono: data })
+}
+
+export function setAppDataSuiteName(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, suiteName: data })
 }
 
 export function setAppDataReset() {
   useDataStore.getState().setData({
     nombre: "",
-    apellidos: "",
+    email: "",
+    telefono: "",
+    suiteName: "",
   })
 }

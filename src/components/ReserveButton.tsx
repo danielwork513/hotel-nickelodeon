@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function ReserveButton() {
   return (
-    <button className="group relative flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-orange-600 py-1 pl-6 pr-14 font-medium text-neutral-50">
+    <Link
+      to="/reservacion"
+      className="group relative flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-orange-600 py-1 pl-6 pr-14 font-medium text-neutral-50"
+    >
       <span className="z-10 pr-2 font-bold">
         Reservar Ahora
       </span>
@@ -10,6 +15,6 @@ export default function ReserveButton() {
           </svg>
         </div>
       </div>
-    </button>
+    </Link>
   );
 }

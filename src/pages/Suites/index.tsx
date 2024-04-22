@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function SuitesPage() {
   return (
     <SecondaryLayout>
-      <main className="flex flex-col pt-14 md:mt-32 mb-10 md:mb-20">
+      <main className="flex flex-col pt-24 md:mt-32 mb-10 md:mb-20">
         <div>
           <h3 className="text-3xl md:text-5xl font-black mb-2">HABITACIONES</h3>
           <h4 className="text-xl md:text-3xl font-extrabold mb-6 md:mb-12 text-orange-600">

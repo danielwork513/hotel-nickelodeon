@@ -2,14 +2,35 @@ import bigKakunaSuite from "@/assets/Big-Kakuna-Suite.webp";
 import lairSuite from "@/assets/Lair-Suite.webp";
 import pineappleSuite from "@/assets/The-Pineapple-Suite.webp";
 import MainLayout from "@/layouts/MainLayout";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function HomePage() {
+  const [imageIndex, setImageIndex] = useState(0);
+  const images = [
+    'Galeria-1-1.webp',
+    'Galeria-1-2.webp',
+    'Galeria-1-3.webp',
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    // Limpia el intervalo cuando el componente se desmonta
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <MainLayout>
       <main className="flex flex-col">
         <section className="flex flex-col md:flex-row justify-between w-full pt-6 md:pt-12">
-          <img className="w-full md:w-5/12 md:mb-0 mb-4" src="/Galeria-1-1.webp" alt="" />
+          <img
+            className="w-full md:w-5/12 md:mb-0 mb-4"
+            src={images[imageIndex]}
+            alt="Imagenes de galeria" 
+          />
           <div className="md:px-14">
             <p className="text-orange-600 text-base md:text-xl font-semibold mb-3">
               NICKELODEON™ HOTELS & RESORTS
