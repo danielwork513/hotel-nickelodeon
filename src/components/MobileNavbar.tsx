@@ -54,7 +54,7 @@ export default function MobileNavbar() {
             className={cn(
               "text-base uppercase rounded-md bg-orange-600 p-2 py-2.5 border border-orange-400 font-bold text-white"
             )}
-            to="/reservar">Reservar Ahora!</Link>
+            to="/reservacion">Reservar Ahora!</Link>
         </nav>
       )}
     </header>
