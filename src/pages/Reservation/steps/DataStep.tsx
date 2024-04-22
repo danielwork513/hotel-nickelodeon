@@ -82,7 +82,7 @@ export default function DataStep() {
                 <FormItem>
                   <FormLabel>Numero de telefono</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input maxLength={10} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

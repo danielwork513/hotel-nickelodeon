@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { setAppDataDiaReserva, setAppDataSuiteName } from "@/store/data"
+import { setAppDataCantidadDias, setAppDataDiaReserva, setAppDataSuiteName } from "@/store/data"
 import { setAppSuccessStep } from "@/store/steps"
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
@@ -24,20 +24,21 @@ export default function TimeStep() {
   const [suite, setSuite] = useState("")
   const [message, setMessage] = useState("")
   const [date, setDate] = useState<Date>()
+  const [days, setDays] = useState("1")
 
   const suites = [
-    "Big Kahuna Suite",
-    "Lair Suite",
-    "Penthouse Swim Up Oceanfront Connecting Suite",
-    "Penthouse Swim Up Oceanfront King Suite",
-    "Penthouse Swim Up Oceanfront Queen Suite",
-    "Swim Up Oceanfront Connecting Suite",
-    "Swim Up Oceanfront King Suite",
-    "Swim Up Oceanfront Pool Deck Level King Suite",
-    "Swim Up Oceanfront Pool Deck Level Queen Suite",
-    "Swim Up Oceanfront Queen Suite",
-    "Swim Up Pool Deck Level Connecting Suite",
-    "The Pineapple Suite"
+    // "Big Kahuna Suite",
+    // "Lair Suite",
+    // "Penthouse Swim Up Oceanfront Connecting Suite",
+    // "Penthouse Swim Up Oceanfront Queen Suite",
+    // "Penthouse Swim Up Oceanfront King Suite",
+    // "Swim Up Oceanfront Connecting Suite",
+    "Swim Up Oceanfront King Suite - $10,200 x noche",
+    // "Swim Up Oceanfront Pool Deck Level King Suite",
+    //"Swim Up Oceanfront Pool Deck Level Queen Suite",
+    "Swim Up Oceanfront Queen Suite - $9,200 x noche",
+    // "Swim Up Pool Deck Level Connecting Suite",
+    // "The Pineapple Suite"
   ]
 
   return (
@@ -95,6 +96,33 @@ export default function TimeStep() {
       </div>
 
       <div className="flex flex-col gap-2 mt-3">
+        <span>Dias de hospedaje</span>
+        <Select
+          onValueChange={(value) => {
+            setDays(value)
+          }}>
+          <SelectTrigger className="w-full">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Selecciona los dias de hospedaje</SelectLabel>
+              <SelectItem value="1">1</SelectItem>
+              <SelectItem value="2">2</SelectItem>
+              <SelectItem value="3">3</SelectItem>
+              <SelectItem value="4">4</SelectItem>
+              <SelectItem value="5">5</SelectItem>
+              <SelectItem value="6">6</SelectItem>
+              <SelectItem value="7">7</SelectItem>
+              <SelectItem value="8">8</SelectItem>
+              <SelectItem value="9">9</SelectItem>
+              <SelectItem value="10">10</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="flex flex-col gap-2 mt-3">
         <span>Mensaje o Comentario</span>
         <Textarea
           value={message}
@@ -109,6 +137,7 @@ export default function TimeStep() {
           onClick={() => {
             setAppSuccessStep()
             setAppDataSuiteName(suite)
+            setAppDataCantidadDias(days)
             setAppDataDiaReserva(format(date as Date, "EEEE dd \'de\' MMMM \'del\' yyyy", { locale: es }) as string)
           }}
           className="px-10 bg-green-700 py-6 text-base font-bold"

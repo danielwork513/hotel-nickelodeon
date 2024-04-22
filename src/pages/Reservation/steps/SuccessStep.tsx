@@ -6,14 +6,23 @@ export default function SuccessStep() {
   const {
     nombre,
     suiteName,
-    diaReserva
+    diaReserva,
+    cantidadDias
   } = data
 
-  // calcular el precio
-  const precio = 1000 * 4
+  const suites = [
+    "Swim Up Oceanfront King Suite - $10,200 x noche",
+    "Swim Up Oceanfront Queen Suite - $9,200 x noche",
+  ]
+
+  // calcular el precio de cada suite
+  const precio = suiteName === suites[0] ? 10200 : 9200
+
+  // calcular el precio total
+  const precioTotal = precio * parseInt(cantidadDias)
 
   // convertirlo a moneda local
-  const precioLocal = precio.toLocaleString("es-MX", {
+  const precioLocal = precioTotal.toLocaleString("es-MX", {
     style: "currency",
     currency: "MXN",
   })
@@ -42,7 +51,7 @@ export default function SuccessStep() {
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
             Monto a pagar:
-            {<span>{precioLocal}</span>}
+            {<span>{precioLocal} MXN</span>}
           </div>
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
