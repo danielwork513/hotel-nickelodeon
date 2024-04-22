@@ -50,6 +50,11 @@ export default function SuccessStep() {
           </div>
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
+            Dias de reservacion:
+            {cantidadDias && <span>{cantidadDias}</span>}
+          </div>
+
+          <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
             Monto a pagar:
             {<span>{precioLocal} MXN</span>}
           </div>
