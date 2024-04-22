@@ -5,6 +5,7 @@ interface Data {
   email: string
   telefono: string
   suiteName: string
+  diaReserva: string
 }
 
 type DataStore = {
@@ -18,6 +19,7 @@ export const useDataStore = create<DataStore>((set) => ({
     email: "",
     telefono: "",
     suiteName: "",
+    diaReserva: "",
   },
   setData: (data: Data) => set({ data }),
 }))
@@ -39,11 +41,16 @@ export function setAppDataSuiteName(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, suiteName: data })
 }
 
+export function setAppDataDiaReserva(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, diaReserva: data })
+}
+
 export function setAppDataReset() {
   useDataStore.getState().setData({
     nombre: "",
     email: "",
     telefono: "",
     suiteName: "",
+    diaReserva: "",
   })
 }

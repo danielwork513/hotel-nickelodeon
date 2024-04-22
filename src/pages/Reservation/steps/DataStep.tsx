@@ -93,7 +93,7 @@ export default function DataStep() {
           <div className="flex flex-col-reverse md:flex-row justify-end mt-10 gap-4">
             <Button
               type="submit"
-              className="px-10 bg-green-700 py-6 text-base font-bold"
+              className="px-10 bg-green-700 hover:bg-green-600 py-6 text-base font-bold"
               disabled={!form.formState.isValid}
             >
               Confimar datos personales

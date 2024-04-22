@@ -1,19 +1,29 @@
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import {
   Select, SelectContent,
   SelectGroup, SelectItem,
   SelectLabel, SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import { setAppSuccessStep } from "@/store/steps"
-import { setAppDataSuiteName } from "@/store/data"
 import { Textarea } from "@/components/ui/textarea"
+import { cn } from "@/lib/utils"
+import { setAppDataDiaReserva, setAppDataSuiteName } from "@/store/data"
+import { setAppSuccessStep } from "@/store/steps"
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
+import { ArrowRight, CalendarIcon } from "lucide-react"
+import { useState } from "react"
 
 export default function TimeStep() {
   const [suite, setSuite] = useState("")
   const [message, setMessage] = useState("")
+  const [date, setDate] = useState<Date>()
 
   const suites = [
     "Big Kahuna Suite",
@@ -32,14 +42,44 @@ export default function TimeStep() {
 
   return (
     <div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 mt-3">
+        <span>Fecha de Reserva</span>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant={"outline"}
+              className={cn(
+                "justify-start h-12 bg-neutral-100 border-orange-400",
+                !date && "text-muted-foreground"
+              )}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {date ? (
+                format(date as Date, "EEEE dd \'de\' MMMM \'del\' yyyy", { locale: es }) as string
+              ) : (
+                <span>Elegir fecha</span>
+              )}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0">
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={setDate}
+              initialFocus
+            />
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      <div className="flex flex-col gap-2 mt-3">
         <span>Seleccionar Habitacion</span>
         <Select
           onValueChange={(value) => {
             setSuite(value)
           }}>
           <SelectTrigger className="w-full">
-            <SelectValue placeholder="Seleccione la hora de la cita" />
+            <SelectValue />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
@@ -65,14 +105,15 @@ export default function TimeStep() {
 
       <div className="flex flex-col-reverse md:flex-row justify-end mt-10 gap-4">
         <Button
-          disabled={!suite}
+          disabled={!suite || !date}
           onClick={() => {
             setAppSuccessStep()
             setAppDataSuiteName(suite)
+            setAppDataDiaReserva(format(date as Date, "EEEE dd \'de\' MMMM \'del\' yyyy", { locale: es }) as string)
           }}
           className="px-10 bg-green-700 py-6 text-base font-bold"
         >
-          Continuar el tramite
+          Reservar Ahora
           <ArrowRight className="ml-2 size-4" />
         </Button>
       </div>

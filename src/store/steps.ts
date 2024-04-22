@@ -13,7 +13,7 @@ export const APP_STATUS = {
 }
 
 export const useStepsStore = create<StepsStore>((set) => ({
-  status: APP_STATUS.TIME_STEP,
+  status: APP_STATUS.DATA_STEP,
   setStatus: (status: number) => set({ status }),
 }))
 
