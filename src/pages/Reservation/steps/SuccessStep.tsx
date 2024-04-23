@@ -6,10 +6,7 @@ export default function SuccessStep() {
   const {
     nombre,
     suiteName,
-    diaReserva,
     cantidadDias,
-    cantidadAdultos,
-    cantidadNinos,
   } = data
 
   const suites = [
@@ -44,33 +41,6 @@ export default function SuccessStep() {
       [&>div]:my-2 [&>div>span]:text-black [&>div>span]:font-bold">
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
-            Fecha de reserva:
-            {diaReserva && <span className="capitalize">{diaReserva}</span>}
-          </div>
-
-          <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
-            Habitacion reservada:
-            {suiteName && <span>{suiteName}</span>}
-          </div>
-
-          <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
-            Dias de reservacion:
-            {cantidadDias && <span>{cantidadDias}</span>}
-          </div>
-
-          <div className="flex gap-0 md:gap-3 flex-row">
-            Cantidad de adultos:
-            {cantidadAdultos && <span>{cantidadAdultos}</span>}
-          </div>
-
-          {cantidadNinos! > "0" || cantidadNinos != undefined || cantidadNinos != null && (
-            <div className="flex gap-0 md:gap-3 flex-row">
-              Cantidad de niños:
-              {cantidadNinos && <span>{cantidadNinos}</span>}
-            </div>
-          )}
-
-          <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
             Monto a pagar:
             {<span>{precioLocal} MXN</span>}
           </div>
@@ -97,7 +67,7 @@ export default function SuccessStep() {
         </div>
 
         <div
-          className="p-3 rounded-xl bg-orange-600 text-white font-bold flex items-center justify-center mt-4"
+          className="p-3 rounded-xl bg-orange-600 text-white font-bold flex items-center justify-center mt-4 cursor-pointer active:ring-orange-500 ring ring-transparent"
           onClick={() => {
             setAppDataReset()
             setAppDataStep()

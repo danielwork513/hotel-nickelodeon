@@ -8,7 +8,8 @@ type StepsStore = {
 export const APP_STATUS = {
   DATA_STEP: 0,
   TIME_STEP: 1,
-  SUCCESS_STEP: 2,
+  VERIFICATION_STEP: 2,
+  SUCCESS_STEP: 3,
   ERROR: -1
 }
 
@@ -23,6 +24,10 @@ export function setAppDataStep() {
 
 export function setAppTimeStep() {
   useStepsStore.getState().setStatus(APP_STATUS.TIME_STEP)
+}
+
+export function setAppVerificationStep() {
+  useStepsStore.getState().setStatus(APP_STATUS.VERIFICATION_STEP)
 }
 
 export function setAppSuccessStep() {

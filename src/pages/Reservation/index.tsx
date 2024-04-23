@@ -6,6 +6,7 @@ import Hero from "./Hero";
 import DataStep from "./steps/DataStep";
 import SuccessStep from "./steps/SuccessStep";
 import TimeStep from "./steps/TimeStep";
+import VerificationStep from "./steps/VerificationStep";
 
 export default function ReservationPage() {
   const { status } = useStepsStore()
@@ -22,6 +23,9 @@ export default function ReservationPage() {
           )}
           {status === APP_STATUS.TIME_STEP && (
             <TimeStep />
+          )}
+          {status === APP_STATUS.VERIFICATION_STEP && (
+            <VerificationStep />
           )}
           {status === APP_STATUS.SUCCESS_STEP && (
             <SuccessStep />

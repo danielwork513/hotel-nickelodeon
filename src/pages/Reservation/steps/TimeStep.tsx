@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { setAppDataCantidadAdultos, setAppDataCantidadDias, setAppDataCantidadNinos, setAppDataDiaReserva, setAppDataSuiteName } from "@/store/data"
-import { setAppSuccessStep } from "@/store/steps"
+import { setAppDataCantidadAdultos, setAppDataCantidadDias, setAppDataCantidadNinos, setAppDataDiaReserva, setAppDataDiaSalida, setAppDataSuiteName } from "@/store/data"
+import { setAppVerificationStep } from "@/store/steps"
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { ArrowRight, CalendarIcon } from "lucide-react"
@@ -163,12 +163,17 @@ export default function TimeStep() {
         <Button
           disabled={!suite || !date || !days || !adults}
           onClick={() => {
-            setAppSuccessStep()
+            setAppVerificationStep()
             setAppDataSuiteName(suite)
             setAppDataCantidadDias(days)
             setAppDataCantidadAdultos(adults)
             setAppDataCantidadNinos(children)
             setAppDataDiaReserva(format(date as Date, "EEEE dd \'de\' MMMM \'del\' yyyy", { locale: es }) as string)
+
+            if (!date) return
+
+            const diaSalida = date?.getDate() + parseInt(days)
+            setAppDataDiaSalida(format(new Date(date?.setDate(diaSalida)), "EEEE dd \'de\' MMMM \'del\' yyyy", { locale: es }) as string)
           }}
           className="px-10 bg-green-700 py-6 text-base font-bold"
         >

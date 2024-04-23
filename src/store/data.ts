@@ -7,6 +7,7 @@ interface Data {
   suiteName: string
   diaReserva: string
   cantidadDias: string
+  diaSalida: string
   cantidadAdultos: string
   cantidadNinos: string
 }
@@ -24,6 +25,7 @@ export const useDataStore = create<DataStore>((set) => ({
     suiteName: "",
     diaReserva: "",
     cantidadDias: "",
+    diaSalida: "",
     cantidadAdultos: "",
     cantidadNinos: "",
   },
@@ -55,6 +57,10 @@ export function setAppDataCantidadDias(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, cantidadDias: data })
 }
 
+export function setAppDataDiaSalida(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, diaSalida: data })
+}
+
 export function setAppDataCantidadAdultos(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, cantidadAdultos: data })
 }
@@ -71,6 +77,7 @@ export function setAppDataReset() {
     suiteName: "",
     diaReserva: "",
     cantidadDias: "",
+    diaSalida: "",
     cantidadAdultos: "",
     cantidadNinos: "",
   })
