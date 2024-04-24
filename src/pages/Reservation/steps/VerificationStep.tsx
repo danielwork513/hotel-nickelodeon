@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator"
 import { useDataStore } from "@/store/data"
 import { setAppSuccessStep } from "@/store/steps"
 
@@ -10,6 +11,7 @@ export default function VerificationStep() {
     diaReserva,
     diaSalida,
     cantidadDias,
+    cantidadHabitaciones,
     cantidadAdultos,
     cantidadNinos,
   } = data
@@ -23,7 +25,7 @@ export default function VerificationStep() {
   const precio = suiteName === suites[0] ? 10200 : 9200
 
   // calcular el precio total
-  const precioTotal = precio * parseInt(cantidadDias)
+  const precioTotal = precio * parseInt(cantidadDias) * parseInt(cantidadHabitaciones)
 
   // convertirlo a moneda local
   const precioLocal = precioTotal.toLocaleString("es-MX", {
@@ -55,7 +57,20 @@ export default function VerificationStep() {
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
             Habitacion reservada:
-            {suiteName && <span>{suiteName}</span>}
+            {suiteName && (
+              <>
+                {suiteName === suites[0] ? (
+                  <span>Swim Up Oceanfront King Suite</span>
+                ) : (
+                  <span>Swim Up Oceanfront Queen Suite</span>
+                )}
+              </>
+            )}
+          </div>
+
+          <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
+            Cantidad de habitaciones:
+            {cantidadHabitaciones && <span>{cantidadHabitaciones}</span>}
           </div>
 
           <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
@@ -78,18 +93,19 @@ export default function VerificationStep() {
             {cantidadAdultos && <span>{cantidadAdultos}</span>}
           </div>
 
-          {cantidadNinos! > "0" || cantidadNinos != undefined || cantidadNinos != null && (
-            <div className="flex gap-0 md:gap-3 flex-row">
+          {parseInt(cantidadNinos) > 0 && (
+            <div className="flex gap-0 md:gap-3 flex-row mb-3">
               Cantidad de niños:
               {cantidadNinos && <span>{cantidadNinos}</span>}
             </div>
           )}
 
-          <div className="flex gap-0 md:gap-3 md:flex-row flex-col">
+          <Separator />
+
+          <div className="flex gap-0 md:gap-3 md:flex-row flex-col mt-8">
             Monto a pagar:
             {<span>{precioLocal} MXN</span>}
           </div>
-
         </div>
 
         <div

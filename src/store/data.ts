@@ -7,9 +7,11 @@ interface Data {
   suiteName: string
   diaReserva: string
   cantidadDias: string
+  cantidadHabitaciones: string
   diaSalida: string
   cantidadAdultos: string
   cantidadNinos: string
+  precioTotal: string
 }
 
 type DataStore = {
@@ -25,9 +27,11 @@ export const useDataStore = create<DataStore>((set) => ({
     suiteName: "",
     diaReserva: "",
     cantidadDias: "",
+    cantidadHabitaciones: "",
     diaSalida: "",
     cantidadAdultos: "",
     cantidadNinos: "",
+    precioTotal: "",
   },
   setData: (data: Data) => set({ data }),
 }))
@@ -57,6 +61,10 @@ export function setAppDataCantidadDias(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, cantidadDias: data })
 }
 
+export function setAppDataCantidadHabitaciones(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, cantidadHabitaciones: data })
+}
+
 export function setAppDataDiaSalida(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, diaSalida: data })
 }
@@ -69,6 +77,10 @@ export function setAppDataCantidadNinos(data: string) {
   useDataStore.getState().setData({ ...useDataStore.getState().data, cantidadNinos: data })
 }
 
+export function setAppDataPrecioTotal(data: string) {
+  useDataStore.getState().setData({ ...useDataStore.getState().data, precioTotal: data })
+}
+
 export function setAppDataReset() {
   useDataStore.getState().setData({
     nombre: "",
@@ -77,8 +89,10 @@ export function setAppDataReset() {
     suiteName: "",
     diaReserva: "",
     cantidadDias: "",
+    cantidadHabitaciones: "",
     diaSalida: "",
     cantidadAdultos: "",
     cantidadNinos: "",
+    precioTotal: "",
   })
 }

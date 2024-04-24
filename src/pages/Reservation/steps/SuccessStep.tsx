@@ -7,6 +7,7 @@ export default function SuccessStep() {
     nombre,
     suiteName,
     cantidadDias,
+    cantidadHabitaciones
   } = data
 
   const suites = [
@@ -18,7 +19,7 @@ export default function SuccessStep() {
   const precio = suiteName === suites[0] ? 10200 : 9200
 
   // calcular el precio total
-  const precioTotal = precio * parseInt(cantidadDias)
+  const precioTotal = precio * parseInt(cantidadDias) * parseInt(cantidadHabitaciones)
 
   // convertirlo a moneda local
   const precioLocal = precioTotal.toLocaleString("es-MX", {

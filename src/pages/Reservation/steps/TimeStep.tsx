@@ -13,12 +13,20 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import { setAppDataCantidadAdultos, setAppDataCantidadDias, setAppDataCantidadNinos, setAppDataDiaReserva, setAppDataDiaSalida, setAppDataSuiteName } from "@/store/data"
+import {
+  setAppDataCantidadAdultos,
+  setAppDataCantidadDias,
+  setAppDataCantidadHabitaciones,
+  setAppDataCantidadNinos,
+  setAppDataDiaReserva,
+  setAppDataDiaSalida,
+  setAppDataSuiteName
+} from "@/store/data"
 import { setAppVerificationStep } from "@/store/steps"
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { ArrowRight, CalendarIcon } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function TimeStep() {
   const [suite, setSuite] = useState("")
@@ -32,6 +40,28 @@ export default function TimeStep() {
     "Swim Up Oceanfront King Suite - $10,200 x noche",
     "Swim Up Oceanfront Queen Suite - $9,200 x noche",
   ]
+
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear()
+  const currentMonth = currentDate.getMonth()
+
+  const disabledDays = [
+    {
+      from: new Date(currentYear, currentMonth, currentDate.getDate() - 1),
+      to: new Date(2024, 1, 0)
+    }
+  ];
+
+  // En las habitaciones solo puede haber maximo dos adultos y dos niños
+  // Si la cantidad de la suma de adultos y niños es mayor a 4, se aumenta la cantidad de habitaciones
+
+  useEffect(() => {
+    if (parseInt(adults) + parseInt(children) > 4) {
+      setAppDataCantidadHabitaciones("2")
+    } else {
+      setAppDataCantidadHabitaciones("1")
+    }
+  }, [adults, children])
 
   return (
     <div>
@@ -64,6 +94,7 @@ export default function TimeStep() {
               onSelect={setDate}
               initialFocus
               locale={es}
+              disabled={disabledDays}
             />
           </PopoverContent>
         </Popover>
@@ -71,6 +102,9 @@ export default function TimeStep() {
 
       <div className="flex flex-col gap-2 mt-3">
         <span>Seleccionar Habitacion</span>
+        <span className="text-sm text-orange-600">
+          La cantidad maxima de personas por habitacion es 2 adultos y 2 niños, si la cantidad de personas es mayor a 4 se aumentara la cantidad de habitaciones
+        </span>
         <Select
           onValueChange={(value) => {
             setSuite(value)
@@ -104,6 +138,9 @@ export default function TimeStep() {
             <SelectGroup>
               <SelectItem value="1">1</SelectItem>
               <SelectItem value="2">2</SelectItem>
+              <SelectItem value="3">3</SelectItem>
+              <SelectItem value="4">4</SelectItem>
+              <SelectItem value="5">5</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
@@ -123,6 +160,9 @@ export default function TimeStep() {
               <SelectItem value="0">0</SelectItem>
               <SelectItem value="1">1</SelectItem>
               <SelectItem value="2">2</SelectItem>
+              <SelectItem value="3">3</SelectItem>
+              <SelectItem value="4">4</SelectItem>
+              <SelectItem value="5">5</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
